@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Trip</title>
+    </head>
+    <body>
+        <div id = "wrapper">
+            <div id = "info">
+                <a href="/travels">Home</a>
+                <a href="/logout">Logout</a>
+                <h1>{{trip.destination}}</h1>
+                <h3>Planned By: {{trip.user_id.name}}</h3>
+                <h3>Description: {{trip.plan}}</h3>
+                <h3>Travel Date From: {{trip.travel_start}}</h3>
+                <h3>Travel Date To: {{trip.travel_end}}</h3>
+            </div>
+            <div id = "joins">
+                <h1>Other Users Joining the Trip</h1>
+                {% for join in joins %}
+                    <h3>{{join.user_id.name}}</h3>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>

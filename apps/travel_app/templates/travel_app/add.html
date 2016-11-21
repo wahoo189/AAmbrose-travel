@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Add Trip</title>
+    </head>
+    <body>
+        <div id = "wrapper">
+            <a href="/travels">Home</a>
+            <a href="/logout">Logout</a>
+            <h1>Add a Trip</h1>
+            <form class="" action="/create" method="post">
+                {% csrf_token %}
+                Destination: <input type="text" name="destination" value=""><br>
+                Description: <textarea name="description" rows="2" cols="40"></textarea><br>
+                Travel Date From: <input type="text" name="travel_start" value=""><br>
+                Travel Date To: <input type="text" name="travel_end" value=""><br>
+                {% if messages %}
+                    {% for message in messages %}
+                        <br>
+                        <h5>{{message}}</h5>
+                    {% endfor %}
+                {% endif %}
+                <input type="submit" name="addBtn" value="Add">
+            </form>
+        </div>
+    </body>
+</html>

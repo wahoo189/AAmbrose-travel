@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'travel_app/style.css'%}">
+        <title>Travel Login</title>
+    </head>
+    <body>
+        <div id = "wrapper">
+            <h1>Welcome!</h1>
+            <div id = "register">
+                <h3>Register</h3>
+                <form class="" action="/register" method="post">
+                    {% csrf_token %}
+                    Name: <input type="text" name="name" value=""><br>
+                    Username: <input type="text" name="username" value=""><br>
+                    Password: <input type="password" name="pass_init" value=""><br>
+                    <p>*Password should be at least 8 characters</p>
+                    Confirm Password <input type="password" name="pass_confirm" value=""><br>
+                    {% if messages and page == 'register' %}
+                        {% for message in messages %}
+                            <br>
+                            <h5>{{message}}</h5>
+                        {% endfor %}
+                    {% endif %}
+                    <input type="submit" name="regBtn" value="Register">
+                </form>
+            </div>
+            <div id = "login">
+                <h3>Login</h3>
+                <form class="" action="/login" method="post">
+                    {% csrf_token %}
+                    Username: <input type="text" name="user_login" value=""><br>
+                    Password: <input type="password" name="pass_login" value=""><br>
+                    {% if messages and page == 'login' %}
+                        {% for message in messages %}
+                            <br>
+                            <h5>{{message}}</h5>
+                        {% endfor %}
+                    {% endif %}
+                    <input type="submit" name="logBtn" value="Login">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

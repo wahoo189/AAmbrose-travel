@@ -1,0 +1,9 @@
+*{
+    border: 0;
+    margin: 0 auto;
+    padding: 0;
+}
+#wrapper{
+    padding: 5px;
+    width: 970px;
+}
